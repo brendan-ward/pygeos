@@ -2,11 +2,11 @@ environment:
   matrix:
     - PYTHON_PATH: "C:\\Miniconda37"
       PYTHON_VERSION: 3.7
-      DEPS: "numpy geos"
+      DEPS: "numpy geos Cython"
 
     - PYTHON_PATH: "C:\\Miniconda37-x64"
       PYTHON_VERSION: 3.7
-      DEPS: "numpy geos"
+      DEPS: "numpy geos Cython"
 
 init:
   - "ECHO %PYTHON% %PYTHON_VERSION%"

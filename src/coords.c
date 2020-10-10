@@ -497,7 +497,7 @@ finish:
   }
 }
 
-PyObject* PyCountCoords(PyObject* self, PyObject* args) {
+PyObject* PyCountCoords(PyObject* args) {
   PyObject* arr;
   npy_intp ret;
 
@@ -519,7 +519,7 @@ PyObject* PyCountCoords(PyObject* self, PyObject* args) {
   return PyLong_FromSsize_t(ret);
 }
 
-PyObject* PyGetCoords(PyObject* self, PyObject* args) {
+PyObject* PyGetCoords(PyObject* args) {
   PyObject* arr;
   int include_z;
 
@@ -537,7 +537,7 @@ PyObject* PyGetCoords(PyObject* self, PyObject* args) {
   return GetCoords((PyArrayObject*)arr, include_z);
 }
 
-PyObject* PySetCoords(PyObject* self, PyObject* args) {
+PyObject* PySetCoords(PyObject* args) {
   PyObject* geoms;
   PyObject* coords;
 

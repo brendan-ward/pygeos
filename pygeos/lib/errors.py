@@ -1,0 +1,2 @@
+class GEOSException(Exception):
+    pass

@@ -3,8 +3,8 @@
 
 #include <Python.h>
 
-extern PyObject* PyCountCoords(PyObject* self, PyObject* args);
-extern PyObject* PyGetCoords(PyObject* self, PyObject* args);
-extern PyObject* PySetCoords(PyObject* self, PyObject* args);
+extern PyObject *PyCountCoords(PyObject *args);
+extern PyObject *PyGetCoords(PyObject *args);
+extern PyObject *PySetCoords(PyObject *args);
 
 #endif

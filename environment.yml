@@ -1,0 +1,9 @@
+name: pygeos-dev
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  - geos
+  - numpy
+  - cython
+  - pytest
