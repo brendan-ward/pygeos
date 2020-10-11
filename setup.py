@@ -143,44 +143,49 @@ if "clean" not in sys.argv and os.path.exists("MANIFEST.in"):
 
     ext_options["include_dirs"].append(numpy.get_include())
 
-    # ext_modules = [
-    #     Extension(
-    #         "pygeos.lib.core",
-    #         sources=[
-    #             "src/core.c",
-    #             # "src/c_api.c",
-    #             "src/coords.c",
-    #             "src/geos.c",
-    #             "src/pygeom.c",
-    #             "src/strtree.c",
-    #             "src/ufuncs.c",
-    #         ],
-    #         **ext_options,
-    #     )
-    # ]
+    ext_modules = [
+        Extension(
+            "pygeos.lib.core",
+            sources=[
+                "src/core.c",
+                # "src/c_api.c",
+                "src/coords.c",
+                "src/geos.c",
+                "src/pygeom.c",
+                "src/strtree.c",
+                "src/ufuncs.c",
+            ],
+            **ext_options,
+        )
+    ]
 
     # add pygeos.lib.core source directory
     ext_options["include_dirs"].insert(0, "./src")
 
     cython_modules = [
+        # Extension(
+        #     "pygeos.lib.coords",
+        #     ["pygeos/lib/coords.pyx", "src/coords.c",  "src/geos.c", "src/pygeom.c"],
+        #     **ext_options,
+        # ),
+        # Extension(
+        #     "pygeos.lib.core",
+        #     ["pygeos/lib/core.pyx"],
+        #     **ext_options,
+        # ),
         Extension(
-            "pygeos.lib.coords",
-            ["pygeos/lib/coords.pyx", "src/coords.c",  "src/geos.c", "src/pygeom.c"],
-            **ext_options,
-        ),
-        Extension(
-            "pygeos.lib.core",
-            ["pygeos/lib/core.pyx"],
-            **ext_options,
-        ),
-        Extension(
-            "pygeos.lib.pygeom",
-            ["pygeos/lib/pygeom.pyx", "src/pygeom.c"],
+            "pygeos.lib.geom",
+            ["pygeos/lib/geom.pyx", "src/pygeom.c", "src/geos.c"],
             **ext_options,
         ),
         Extension(
             "pygeos.lib.geos",
             ["pygeos/lib/geos.pyx", "src/geos.c",],
+            **ext_options,
+        ),
+        Extension(
+            "pygeos.lib.pygeom",
+            ["pygeos/lib/pygeom.pyx", "src/pygeom.c"],
             **ext_options,
         ),
     ]

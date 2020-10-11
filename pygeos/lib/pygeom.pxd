@@ -9,8 +9,9 @@ cdef extern from "pygeom.h":
     ctypedef struct GeometryObject:
         intp_t ptr
 
-    ctypedef class pygeos.lib.pygeom.Geometry [object GeometryObject]:
+    ctypedef class pygeos.lib.core.Geometry [object GeometryObject]:
         cdef intp_t _ptr "ptr"
 
     PyObject *GeometryObject_FromGEOS(GEOSGeometry *ptr, GEOSContextHandle_t ctx)
-    get_geom(GeometryObject *obj, GEOSGeometry **out)
+    char get_geom(GeometryObject *obj, GEOSGeometry **out)
+

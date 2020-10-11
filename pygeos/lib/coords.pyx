@@ -14,35 +14,19 @@ from pygeos.lib.coords cimport PyCountCoords, PyGetCoords, PySetCoords
 np.import_array()
 
 
-def count_coordinates(*arr):
-    """Counts the total amount of coordinates in a array with geometry objects"""
+def count_coordinates(*args):
+    """Counts the number of coordinate pairs in a geometry array."""
 
-    ret = PyCountCoords(<PyObject *> arr)
-
-    # if ret == NULL:
-    #     # TODO: check exception
-    #     return None
-
-    return <object> ret
+    return <object>PyCountCoords(<PyObject *> args)
 
 
 def get_coordinates(*args):
-    """Gets the coordinates as an (N, 2) shaped ndarray of floats"""
-    pass
+    """Gets coordinates from a geometry array as an array of floats."""
+
+    return <object> PyGetCoords(<PyObject *> args)
 
 
 def set_coordinates(*args):
-    """Sets coordinates to a geometry array"""
-    pass
+    """Returns a copy of a geometry array with different coordinates."""
 
-
-# if arr is None:
-#     return None
-
-# TODO: typecheck that is ndarray of
-# if not isinstance(arr, np.ndarray):
-#     raise TypeError("Not an ndarray")
-
-# if arr.dtype != np.object:
-#     raise TypeError("Array should be of object dtype")
-
+    return <object> PySetCoords(<PyObject *> args)

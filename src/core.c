@@ -26,9 +26,9 @@ static PyMethodDef GeosModule[] = {
     {NULL, NULL, 0, NULL}};
 
 static struct PyModuleDef moduledef = {
-    PyModuleDef_HEAD_INIT, "lib", NULL, -1, GeosModule, NULL, NULL, NULL, NULL};
+    PyModuleDef_HEAD_INIT, "core", NULL, -1, GeosModule, NULL, NULL, NULL, NULL};
 
-PyMODINIT_FUNC PyInit_lib(void) {
+PyMODINIT_FUNC PyInit_core(void) {
   PyObject *m, *d;
 
   m = PyModule_Create(&moduledef);
