@@ -107,7 +107,10 @@ class STRtree:
     def time_tree_nearest_poly_python(self):
         # use an arbitrary search tolerance that seems appropriate for the density of
         # geometries
-        tolerance = 200
+        left, right = self.tree.nearest(self.points)
+        singles = np.unique(left, return_index=True)[1]  # simulate getting "a" _single_ nearest point for each geometry
+        left, right = left[singles], right[singles]
+        tolerance = pygeos.distance(self.polygons.take(right), self.points.take(left)) * 1.0001 + 0.00000001
         b = pygeos.buffer(self.points, tolerance, quadsegs=1)
         left, right = self.tree.query_bulk(b)
         dist = pygeos.distance(self.points.take(left), self.polygons.take(right))
